@@ -19,37 +19,49 @@ public class ParityTest {
 
     @Test
     public void testParityUsingModulo() {
-        int parity = Parity.parity(30);
+        int parity = Parity.parityBitByBit(30);
         assertEquals(0, parity);
 
-        parity = Parity.parity(60);
+        parity = Parity.parityBitByBit(60);
         assertEquals(0, parity);
 
-        parity = Parity.parity(16);
+        parity = Parity.parityBitByBit(16);
         assertEquals(1, parity);
     }
 
     @Test
     public void testParityUsingXOR() {
-        int parity = Parity.parity1(30);
+        int parity = Parity.parityBitByBitUsingXOR(30);
         assertEquals(0, parity);
 
-        parity = Parity.parity1(60);
+        parity = Parity.parityBitByBitUsingXOR(60);
         assertEquals(0, parity);
 
-        parity = Parity.parity1(16);
+        parity = Parity.parityBitByBitUsingXOR(16);
         assertEquals(1, parity);
     }
 
     @Test
     public void testParity() {
-        int parity = Parity.parity2(30);
+        int parity = Parity.parityBitByBitSmart(30);
         assertEquals(0, parity);
 
-        parity = Parity.parity2(60);
+        parity = Parity.parityBitByBitSmart(60);
         assertEquals(0, parity);
 
-        parity = Parity.parity2(16);
+        parity = Parity.parityBitByBitSmart(16);
+        assertEquals(1, parity);
+    }
+
+    @Test
+    public void testParityUsingXORAssociativity() {
+        int parity = Parity.parityAssoc(30);
+        assertEquals(0, parity);
+
+        parity = Parity.parityAssoc(60);
+        assertEquals(0, parity);
+
+        parity = Parity.parityAssoc(16);
         assertEquals(1, parity);
     }
 }
